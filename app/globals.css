@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Mabry";
+  src: url("/fonts/MabryPro.otf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mabry-Mono";
+  src: url("/fonts/MabryMonoPro.otf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  background: #ffffff;
+  color: #171717;
+  font-family: "Mabry", system-ui, -apple-system, sans-serif;
+}
+
+@theme {
+  --font-mono: "Mabry-Mono", system-ui, -apple-system, sans-serif;
+  --spacing-140: 35rem;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
