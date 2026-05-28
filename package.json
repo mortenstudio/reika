@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "studio": "sanity dev --port 3333",
-    "studio:deploy": "sanity deploy"
+    "studio:deploy": "sanity deploy",
+    "git:push": "git push origin main"
   },
   "dependencies": {
     "@portabletext/react": "^5.0.0",
