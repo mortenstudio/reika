@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ImagesBlock as ImagesBlockData } from "../../types";
 import { sanityImageSrc } from "../lib/sanity-image";
+import ScrollReveal from "../components/ScrollReveal";
 
 interface ImagesBlockProps {
   data?: Omit<ImagesBlockData, "_type" | "_key">;
@@ -19,7 +20,7 @@ export default function ImagesBlock({ data }: ImagesBlockProps) {
             if (!src) return null;
 
             return (
-              <figure key={index} className="flex flex-col">
+              <ScrollReveal key={index} as="figure" className="flex flex-col" delay={index * 0.15}>
                 <div className="w-full h-auto py-4 bg-white">
                   <Image
                     src={src}
@@ -35,7 +36,7 @@ export default function ImagesBlock({ data }: ImagesBlockProps) {
                     </figcaption>
                   ) : null}
                 </div>
-              </figure>
+              </ScrollReveal>
             );
           })}
         </div>

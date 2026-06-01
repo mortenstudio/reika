@@ -5,6 +5,7 @@ import { getPageBySlug, getAllPageSlugParams } from "../lib/pages";
 import { sanityImageSrc } from "../lib/sanity-image";
 import { renderPageContentBlock } from "../lib/page-content-blocks";
 import type { PageDocument, PageContentBlock } from "../../types";
+import ScrollReveal from "../components/ScrollReveal";
 
 function pageImageSrc(page: PageDocument): string | null {
   return sanityImageSrc(page.image);
@@ -57,7 +58,7 @@ export default async function DynamicPage({ params }: PageProps) {
       {hasHeader ? (
         <div className="relative z-0 grid grid-cols-6 md:grid-cols-12 gap-y-30 md:gap-y-40 lg:gap-y-50 xl:gap-y-60 mx-4 mt-80 mb-30 md:mb-40 lg:mb-50 xl:mb-60">
           {imageSrc ? (
-            <div className="col-span-12 ">
+            <ScrollReveal className="col-span-12">
               <div className="py-4 bg-white">
                 <Image
                   src={imageSrc}
@@ -69,9 +70,9 @@ export default async function DynamicPage({ params }: PageProps) {
                   sizes="(max-width: 768px) 100vw, 40vw"
                 />
               </div>
-            </div>
+            </ScrollReveal>
           ) : null}
-          <div className="col-span-6  md:col-span-7 lg:col-span-10">
+          <ScrollReveal className="col-span-6 md:col-span-7 lg:col-span-10" delay={0.15}>
             <div className="flex bg-white py-4">
               {introduction ? (
                 <div className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
@@ -79,7 +80,7 @@ export default async function DynamicPage({ params }: PageProps) {
                 </div>
               ) : null}
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       ) : null}
 

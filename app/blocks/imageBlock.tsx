@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ImageBlock as ImageBlockData } from "../../types";
 import { sanityImageSrc } from "../lib/sanity-image";
+import ScrollReveal from "../components/ScrollReveal";
 
 interface ImageBlockProps {
   data?: Omit<ImageBlockData, "_type" | "_key">;
@@ -13,7 +14,7 @@ export default function ImageBlock({ data }: ImageBlockProps) {
   return (
     <section>
       <div className="grid grid-cols-6 md:grid-cols-12 gap-8 mx-4 my-30 md:my-40 lg:my-50 xl:my-60">
-        <figure className="col-span-6 md:col-span-12 flex flex-col gap-3">
+        <ScrollReveal as="figure" className="col-span-6 md:col-span-12 flex flex-col gap-3">
           <div className="aspect-video w-full rounded-md overflow-hidden bg-black/5">
             <Image
               src={src}
@@ -29,7 +30,7 @@ export default function ImageBlock({ data }: ImageBlockProps) {
               {data.caption}
             </figcaption>
           ) : null}
-        </figure>
+        </ScrollReveal>
       </div>
     </section>
   );

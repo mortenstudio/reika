@@ -1,6 +1,7 @@
 import { PortableText } from "@portabletext/react";
 import type { TextBlock as TextBlockData } from "../../types";
 import Pill from "../components/Pill";
+import ScrollReveal from "../components/ScrollReveal";
 
 interface TextBlockProps {
   data?: Omit<TextBlockData, "_type" | "_key">;
@@ -11,7 +12,7 @@ export default function TextBlock({ data }: TextBlockProps) {
 
   return (
     <section>
-      <div className="grid grid-cols-6 md:grid-cols-12 gap-x-8 mx-4 my-30 md:my-40 lg:my-50 xl:my-60">
+      <ScrollReveal className="grid grid-cols-6 md:grid-cols-12 gap-x-8 mx-4 my-30 md:my-40 lg:my-50 xl:my-60">
         <div className="col-span-6 md:col-span-12">
           <div className="bg-white py-4 w-fit">
             {data.title ? (
@@ -35,7 +36,7 @@ export default function TextBlock({ data }: TextBlockProps) {
             </div>
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

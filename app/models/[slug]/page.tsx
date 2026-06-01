@@ -8,6 +8,7 @@ import { urlFor } from "../../../sanity/lib/image";
 import type { ModelDocument, ModelContentBlock } from "../../../types";
 import { renderModelContentBlock } from "../../lib/model-content-blocks";
 import Pill from "@/app/components/Pill";
+import ScrollReveal from "../../components/ScrollReveal";
 
 function modelImageSrcs(model: ModelDocument): string[] {
   if (!model.images?.length) return [];
@@ -61,7 +62,7 @@ export default async function ModelPage({ params }: PageProps) {
   return (
     <main>
       <div className="grid grid-cols-6 md:grid-cols-12 gap-y-30 md:gap-y-40 lg:gap-y-50 xl:gap-y-60 mx-4 mt-80 mb-30 md:mb-40 lg:mb-50 xl:mb-60">
-        <div className="col-span-6 md:col-span-7 lg:col-span-8">
+        <ScrollReveal className="col-span-6 md:col-span-7 lg:col-span-8">
           <div className="flex flex-col gap-6">
             {model.name ? (
               <div className="bg-white py-4 w-fit">
@@ -76,7 +77,7 @@ export default async function ModelPage({ params }: PageProps) {
               </div>
             ) : null}
           </div> 
-        </div>
+        </ScrollReveal>
 
         {imageSrcs.length > 0 ? (
           <ModelImageCarousel

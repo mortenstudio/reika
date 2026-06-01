@@ -1,6 +1,7 @@
 import Logo from "../components/Logo";
 import { DEFAULT_FOOTER_DATA } from "../lib/constants";
 import type { SettingsDocument } from "../../types";
+import ScrollReveal from "../components/ScrollReveal";
 
 type FooterData = NonNullable<SettingsDocument["footer"]>;
 
@@ -31,9 +32,9 @@ export default function FooterBlock({ data }: FooterBlockProps) {
   const socialLinks = data?.socialLinks ?? DEFAULT_FOOTER_DATA.socialLinks;
 
   return (
-    <footer>
+    <ScrollReveal as="footer">
       <div className="mx-4 pt-4 bg-white">
-        <div className="flex flex-col gap-60 p-5 mb-4 rounded-md bg-[#534129] text-white">
+        <div className="flex flex-col gap-60 p-4 md:p-6 lg:p-8 mb-4 rounded-md bg-[#534129] text-white">
           <div className="grid grid-cols-6 md:grid-cols-12 gap-8">
             <div className="col-span-6 lg:col-span-3">
               <div className="flex flex-col gap-3">
@@ -93,6 +94,6 @@ export default function FooterBlock({ data }: FooterBlockProps) {
           </div>
         </div>
       </div>
-    </footer>
+    </ScrollReveal>
   );
 }

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import type { ModelSpecifications } from "../../types";
 import Pill from "../components/Pill";
+import ScrollReveal from "../components/ScrollReveal";
 
 interface SpecificationsBlockProps {
   data: ModelSpecifications;
@@ -100,7 +101,7 @@ export default function SpecificationsBlock({ data }: SpecificationsBlockProps) 
 
   return (
     <section>
-      <div className="bg-white py-4 mx-4 my-30 md:my-40 lg:my-50 xl:my-60">
+      <ScrollReveal className="bg-white py-4 mx-4 my-30 md:my-40 lg:my-50 xl:my-60">
         <div className="rounded-md bg-[#FFFDCE] p-6 md:p-8 flex flex-col gap-6 md:gap-8">
           <div className="w-fit">
             <Pill variant="yellow">Spesifikasjoner</Pill>
@@ -121,7 +122,7 @@ export default function SpecificationsBlock({ data }: SpecificationsBlockProps) 
             </div>
           ) : null}
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

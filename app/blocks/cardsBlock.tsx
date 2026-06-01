@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { CardsBlock as CardsBlockData } from "../../types";
 import { sanityImageSrc } from "../lib/sanity-image";
 import Pill from "../components/Pill";
+import ScrollReveal from "../components/ScrollReveal";
 
 interface CardsBlockProps {
   data?: Omit<CardsBlockData, "_type" | "_key">;
@@ -49,7 +50,7 @@ export default function CardsBlock({ data }: CardsBlockProps) {
                 </div>
               );
 
-              return <div key={index}>{content}</div>;
+              return <ScrollReveal key={index} delay={index * 0.15}>{content}</ScrollReveal>;
             })}
           </div>
         </div>

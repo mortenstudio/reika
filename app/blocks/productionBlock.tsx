@@ -7,8 +7,8 @@ import Pill from "../components/Pill";
 
 function ProductionPhaseCard({ phase }: { phase: ProductionPhase }) {
   return (
-    <article className="relative flex w-[80vw] md:w-[33vw] shrink-0 flex-col py-4 bg-white">
-      <div className="bg-[#E8F7FF] rounded-md p-4 md:p-5 lg:p-6 flex flex-col gap-8 aspect-square w-full">
+    <article className="relative flex w-[77vw] md:w-[31.5vw] shrink-0 flex-col py-4 bg-white">
+      <div className="bg-[#E8F7FF] rounded-md p-4 md:p-6 lg:p-8 flex flex-col gap-4 md:gap-6 lg:gap-8 aspect-square w-full">
         <div className="flex justify-between items-center gap-2">
           <h3 className="text-xs md:text-sm lg:text-base">{phase.title}</h3>
           {phase.duration ? (

@@ -6,6 +6,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import type { CarouselBlock as CarouselBlockData, CarouselSlide } from "../../types";
 import { sanityImageSrc } from "../lib/sanity-image";
+import ScrollReveal from "../components/ScrollReveal";
 
 type ResolvedSlide = CarouselSlide & { src: string; alt: string };
 
@@ -152,9 +153,9 @@ export default function CarouselBlock({ data }: CarouselBlockProps) {
 
   return (
     <section>
-      <div className="grid grid-cols-6 md:grid-cols-12 gap-8 my-30 md:my-40 lg:my-50 xl:my-60">
+      <ScrollReveal className="grid grid-cols-6 md:grid-cols-12 gap-8 my-30 md:my-40 lg:my-50 xl:my-60">
         <CarouselSlides slides={slides} />
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

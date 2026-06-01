@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
+import ScrollReveal from "./ScrollReveal";
 
 export interface ModelCarouselImage {
   src: string;
@@ -65,7 +66,7 @@ export default function ModelImageCarousel({ images }: ModelImageCarouselProps) 
   }, [emblaApi]);
 
   return (
-    <div className="col-span-12 w-full">
+    <ScrollReveal className="col-span-12 w-full">
       <div className="relative group w-full bg-white py-4">
         <div
           ref={emblaRef}
@@ -119,6 +120,6 @@ export default function ModelImageCarousel({ images }: ModelImageCarouselProps) 
           </>
         ) : null}
       </div>
-    </div>
+    </ScrollReveal>
   );
 }
