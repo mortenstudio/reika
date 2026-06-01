@@ -49,7 +49,7 @@ const ModelCard = forwardRef<HTMLDivElement, ModelCardProps>(
           </div>
           <div className="col-span-6 lg:col-span-4 lg:justify-self-end flex gap-1 mt-12 lg:mt-0">
             <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 py-1 flex gap-4">
-              <span className="opacity-66">Størrelse</span><span>{model.size} kvm</span>
+              <span className="opacity-66">Størrelse</span><span>{model.sizeBya} kvm</span>
             </div>
             <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 py-1 flex gap-4">
               <span className="opacity-66">Personer</span><span>{model.capacity}</span>
@@ -114,7 +114,7 @@ const ModelCard = forwardRef<HTMLDivElement, ModelCardProps>(
           </p>
           <div className="flex flex-col lg:flex-row gap-1">
             <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 py-1 flex gap-4 w-fit">
-              <span className="opacity-66">Størrelse</span><span>{model.size} kvm</span>
+              <span className="opacity-66">Størrelse</span><span>{model.sizeBya} kvm</span>
             </div>
             <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 py-1 flex gap-4 w-fit">
               <span className="opacity-66">Personer</span><span>{model.capacity}</span>

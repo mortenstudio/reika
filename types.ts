@@ -9,6 +9,7 @@ export interface Model {
   name: string;
   description: string;
   size: string;
+  sizeBya?: string;
   capacity: string;
   rooms: string;
   floors: string;

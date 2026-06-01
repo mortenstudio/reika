@@ -35,6 +35,7 @@ export function mapModelDocumentsToModels(documents: ModelDocument[]): Model[] {
     name: model.name,
     description: model.description,
     size: model.size,
+    sizeBya: model.sizeBya != null ? String(model.sizeBya) : undefined,
     capacity: model.capacity,
     rooms: model.rooms,
     floors: model.floors,
