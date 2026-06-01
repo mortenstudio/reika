@@ -46,12 +46,14 @@ export default function HeroBlock({ data, blobVideoUrl, introduction }: HeroBloc
 
     const isMobile = window.innerWidth < 768;
     const initialWidth = isMobile ? "60%" : "15%";
+    const initialHeight = isMobile ? "20%" : "15%";
 
     track(
       animate(
         container,
         {
           width: initialWidth,
+          height: initialHeight,
           left: "50%",
           top: "50%",
           x: "-50%",
@@ -61,24 +63,39 @@ export default function HeroBlock({ data, blobVideoUrl, introduction }: HeroBloc
         { duration: 0 }
       )
     );
-    track(animate(video, { opacity: 0 }, { duration: 0 }));
+    const waitForVideo = () =>
+      new Promise<void>((resolve) => {
+        if (video.readyState >= 2) return resolve();
+        let resolved = false;
+        const done = () => {
+          if (resolved) return;
+          resolved = true;
+          resolve();
+        };
+        video.addEventListener("loadeddata", done, { once: true });
+        video.addEventListener("canplay", done, { once: true });
+        setTimeout(done, 800);
+      });
+
+    video.load();
 
     void (async () => {
-      const open = track(
-        animate(video, { opacity: 1 }, { duration: 0.3, ease: EASING.smooth })
-      );
+      await waitForVideo();
+      if (cancelled) return;
+
       const growIn = track(
         animate(
           container,
           {
             opacity: 1,
             width: initialWidth,
+            height: initialHeight,
             y: "-50%",
           },
           { duration: 1, ease: EASING.smooth }
         )
       );
-      await Promise.all([open, growIn]);
+      await growIn;
       if (cancelled) return;
 
       await new Promise((r) => setTimeout(r, 500));
@@ -117,13 +134,12 @@ export default function HeroBlock({ data, blobVideoUrl, introduction }: HeroBloc
         <video
           ref={videoRef}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full rounded-md object-cover"
+          src={videoUrl}
           loop
           muted
           playsInline
           preload="auto"
-        >
-          <source src={videoUrl} type="video/mp4" />
-        </video>
+        />
       </div>
     </section>
     <section>
