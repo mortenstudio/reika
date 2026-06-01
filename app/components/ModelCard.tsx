@@ -47,17 +47,17 @@ const ModelCard = forwardRef<HTMLDivElement, ModelCardProps>(
               {model.description}
             </p>
           </div>
-          <div className="col-span-6 lg:col-span-4 lg:justify-self-end flex gap-1 mt-12 lg:mt-0">
-            <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 py-1 flex gap-4">
+          <div className="col-span-6 lg:col-span-4 lg:justify-self-end flex flex-wrap w-5/6 gap-1 mt-12 lg:mt-0">
+            <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 pt-1 pb-0.75 flex gap-4">
               <span className="opacity-66">Størrelse</span><span>{model.sizeBya} kvm</span>
             </div>
-            <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 py-1 flex gap-4">
+            <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 pt-1 pb-0.75 flex gap-4">
               <span className="opacity-66">Personer</span><span>{model.capacity}</span>
             </div>
-            <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 py-1 flex gap-4">
+            <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 pt-1 pb-0.75 flex gap-4">
               <span className="opacity-66">Rom</span><span>{model.rooms}</span>
             </div>
-            <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 py-1 flex gap-4">
+            <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 pt-1 pb-0.75 flex gap-4">
               <span className="opacity-66">Etasjer</span><span>{model.floors}</span>
             </div>
           </div>
@@ -112,17 +112,17 @@ const ModelCard = forwardRef<HTMLDivElement, ModelCardProps>(
           <p className="text-xs md:text-sm lg:text-base lg:w-1/2 mb-12">
             {model.description}
           </p>
-          <div className="flex flex-col lg:flex-row gap-1">
-            <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 py-1 flex gap-4 w-fit">
+          <div className="flex flex-row flex-wrap gap-1 w-5/6">
+            <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 pt-1 pb-0.75 flex gap-4 w-fit">
               <span className="opacity-66">Størrelse</span><span>{model.sizeBya} kvm</span>
             </div>
-            <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 py-1 flex gap-4 w-fit">
+            <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 pt-1 pb-0.75 flex gap-4 w-fit">
               <span className="opacity-66">Personer</span><span>{model.capacity}</span>
             </div>
-            <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 py-1 flex gap-4 w-fit">
+            <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 pt-1 pb-0.75 flex gap-4 w-fit">
               <span className="opacity-66">Rom</span><span>{model.rooms}</span>
             </div>
-            <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 py-1 flex gap-4 w-fit">
+            <div className="select-none text-3xs lg:text-2xs font-mono uppercase bg-[#38422A] text-white text-center rounded-full px-2 pt-1 pb-0.75 flex gap-4 w-fit">
               <span className="opacity-66">Etasjer</span><span>{model.floors}</span>
             </div>
           </div>

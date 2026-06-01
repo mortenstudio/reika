@@ -102,7 +102,7 @@ function FloorPlanBlockView({ floorPlans, heading }: FloorPlanBlockViewProps) {
         className="sticky flex flex-col"
         style={{ top: stickyTop }}
       >
-        <div className="mx-4 mb-8">
+        <div className="mx-4 md:mb-4 lg:mb-8">
           {heading ? (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -120,7 +120,7 @@ function FloorPlanBlockView({ floorPlans, heading }: FloorPlanBlockViewProps) {
         </div>
 
         <div ref={viewportRef} className="overflow-hidden px-4">
-          <motion.div ref={trackRef} className="flex gap-8" style={{ x }}>
+          <motion.div ref={trackRef} className="flex gap-4 md:gap-6 lg:gap-8" style={{ x }}>
             {floorPlans.map((item, index) => (
               <FloorPlanCard
                 key={index}

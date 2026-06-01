@@ -70,15 +70,15 @@ export default function ModelImageCarousel({ images }: ModelImageCarouselProps) 
       <div className="relative group w-full bg-white py-4">
         <div
           ref={emblaRef}
-          className="w-full overflow-hidden"
+          className="w-full overflow-hidden rounded-md"
           aria-roledescription="carousel"
           aria-label="Modellbilder"
         >
-          <div className="flex gap-4">
+          <div className="flex">
             {images.map((image, i) => (
               <div
                 key={image.src}
-                className="min-w-0 shrink-0 grow-0 basis-full"
+                className="min-w-0 shrink-0 grow-0 basis-full mx-2"
                 aria-roledescription="slide"
                 aria-hidden={i !== selectedIndex}
               >

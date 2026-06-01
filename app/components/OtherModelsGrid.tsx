@@ -20,13 +20,13 @@ export default function OtherModelsGrid({ models }: OtherModelsGridProps) {
 
   return (
     <section>
-      <div className="grid grid-cols-6 lg:grid-cols-12 gap-8 mx-4 my-30 md:my-40 lg:my-50 xl:my-60">
+      <div className="grid grid-cols-6 lg:grid-cols-12 md:gap-4 lg:gap-8 mx-4 my-30 md:my-40 lg:my-50 xl:my-60">
         <div className="col-span-12">
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col md:gap-4 lg:gap-8">
           <div className="bg-white py-4 w-fit">
               <Pill variant="yellow">Andre modeller</Pill>
           </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 md:gap-4 lg:gap-8">
               {models.map((model, index) => (
                 <ModelCard
                   key={model.slug ?? model.id}

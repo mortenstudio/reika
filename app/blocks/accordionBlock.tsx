@@ -18,7 +18,7 @@ export default function AccordionBlock({ data }: AccordionBlockProps) {
 
   return (
     <section>
-      <ScrollReveal className="grid grid-cols-6 md:grid-cols-12 gap-8 mx-4 my-30 md:my-40 lg:my-50 xl:my-60">
+      <ScrollReveal className="grid grid-cols-6 md:grid-cols-12 md:gap-4 lg:gap-8 mx-4 my-30 md:my-40 lg:my-50 xl:my-60">
         <div className="col-span-6">
           <div className="bg-white py-4 w-fit">
             {data.title ? (

@@ -13,8 +13,8 @@ export default function ImagesBlock({ data }: ImagesBlockProps) {
 
   return (
     <section>
-      <div className="grid grid-cols-6 md:grid-cols-12 gap-8 mx-4 my-30 md:my-40 lg:my-50 xl:my-60">
-        <div className="col-span-6 md:col-span-12 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
+      <div className="grid grid-cols-6 md:grid-cols-12 md:gap-4 lg:gap-8 mx-4 my-30 md:my-40 lg:my-50 xl:my-60">
+        <div className="col-span-6 md:col-span-12 grid grid-cols-1 sm:grid-cols-2 md:gap-4 lg:gap-8">
           {images.map((item, index) => {
             const src = sanityImageSrc(item.image);
             if (!src) return null;

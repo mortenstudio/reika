@@ -98,11 +98,11 @@ function ModelsBlockView({ models }: ModelsBlockViewProps) {
       )}
       <div className="grid grid-cols-6 md:grid-cols-12 gap-8 mx-4 my-30 md:my-40 lg:my-50 xl:my-60">
         <div className="col-span-12">
-          <div className="flex justify-between items-center mb-8">
+          <div className="flex justify-between items-center lg:mb-8">
           <div className="bg-white py-4 w-fit">
             <Pill variant="yellow">Våre modeller</Pill>
           </div>
-            <div className="flex justify-self-end gap-2 w-fit bg-white py-4 ">
+            <div className="flex justify-self-end gap-1 w-fit bg-white py-4 ">
               <button
                 type="button"
                 onClick={() => handleViewModeChange("grid")}
@@ -132,7 +132,7 @@ function ModelsBlockView({ models }: ModelsBlockViewProps) {
           <div
             className={
               viewMode === "grid"
-                ? "grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 md:gap-y-8"
+                ? "grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-y-4 lg:gap-y-8"
                 : "flex flex-col py-4 bg-white gap-y-2"
             }
             onMouseMove={handleListMouseMove}

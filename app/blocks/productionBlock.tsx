@@ -87,8 +87,8 @@ function ProductionBlockView({
       aria-label={heading}
     >
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
-        <div className="mx-4 mb-8">
-          <div className="flex flex-col gap-8 lg:w-3/4">
+        <div className="mx-4 lg:mb-8">
+          <div className="flex flex-col md:gap-4 lg:gap-8 lg:w-3/4">
             <div className="bg-white py-4 w-fit">
               {heading ? (
                 <Pill variant="green">{heading}</Pill>

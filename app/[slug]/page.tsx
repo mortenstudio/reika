@@ -56,7 +56,7 @@ export default async function DynamicPage({ params }: PageProps) {
   return (
     <main className="relative min-h-screen">
       {hasHeader ? (
-        <div className="relative z-0 grid grid-cols-6 md:grid-cols-12 gap-y-30 md:gap-y-40 lg:gap-y-50 xl:gap-y-60 mx-4 mt-80 mb-30 md:mb-40 lg:mb-50 xl:mb-60">
+        <div className="relative z-0 grid grid-cols-6 md:grid-cols-12 md:gap-y-10 lg:gap-y-20 xl:gap-y-30 mx-4 mt-80 mb-30 md:mb-40 lg:mb-50 xl:mb-60">
           {imageSrc ? (
             <ScrollReveal className="col-span-12">
               <div className="py-4 bg-white">

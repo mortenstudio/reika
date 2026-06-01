@@ -15,14 +15,14 @@ export default function CardsBlock({ data }: CardsBlockProps) {
 
   return (
     <section>
-      <div className="grid grid-cols-6 md:grid-cols-12 gap-8 mx-4 my-30 md:my-40 lg:my-50 xl:my-60">
-        <div className="col-span-6 md:col-span-12 flex flex-col gap-8">
+      <div className="grid grid-cols-6 md:grid-cols-12 md:gap-4 lg:gap-8 mx-4 my-30 md:my-40 lg:my-50 xl:my-60">
+        <div className="col-span-6 md:col-span-12 flex flex-col md:gap-4 lg:gap-8">
           <div className="bg-white py-4 w-fit">
             {data.heading ? (
               <Pill variant="green">{data.heading}</Pill>
             ) : null}
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:gap-4 lg:gap-8">
             {cards.map((card, index) => {
               const src = sanityImageSrc(card.image);
               const content = (

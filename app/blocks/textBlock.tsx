@@ -30,7 +30,7 @@ export default function TextBlock({ data }: TextBlockProps) {
               </div>
           </div>
         <div className="col-span-6 md:col-start-7 md:col-span-5">
-          <div className="bg-white py-4 mt-2">
+          <div className="bg-white py-4 lg:mt-2">
             <div className="text-xs md:text-sm lg:text-base [&_p]:mb-3 md:[&_p]:mb-6 [&_p:last-child]:mb-0">
               <PortableText value={data.body} />
             </div>

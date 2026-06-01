@@ -153,9 +153,9 @@ export default function CarouselBlock({ data }: CarouselBlockProps) {
 
   return (
     <section>
-      <ScrollReveal className="grid grid-cols-6 md:grid-cols-12 gap-8 my-30 md:my-40 lg:my-50 xl:my-60">
+      <div className="grid grid-cols-6 md:grid-cols-12 gap-8 my-30 md:my-40 lg:my-50 xl:my-60">
         <CarouselSlides slides={slides} />
-      </ScrollReveal>
+      </div>
     </section>
   );
 }

@@ -61,9 +61,9 @@ export default async function ModelPage({ params }: PageProps) {
 
   return (
     <main>
-      <div className="grid grid-cols-6 md:grid-cols-12 gap-y-30 md:gap-y-40 lg:gap-y-50 xl:gap-y-60 mx-4 mt-80 mb-30 md:mb-40 lg:mb-50 xl:mb-60">
+      <div className="grid grid-cols-6 md:grid-cols-12 md:gap-y-10 lg:gap-y-20 xl:gap-y-30 mx-4 mt-70 mb-30 md:mb-40 lg:mb-50 xl:mb-60">
         <ScrollReveal className="col-span-6 md:col-span-7 lg:col-span-8">
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col md:gap-4 lg:gap-8">
             {model.name ? (
               <div className="bg-white py-4 w-fit">
                 <Pill variant="green">{model.name}</Pill>
