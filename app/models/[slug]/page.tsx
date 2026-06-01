@@ -1,0 +1,100 @@
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { getModelBySlug, getAllModelSlugParams, getAllModels } from "../../lib/models";
+import { mapModelDocumentsToModels } from "../../lib/map-sanity-models";
+import ModelImageCarousel from "../../components/ModelImageCarousel";
+import OtherModelsGrid from "../../components/OtherModelsGrid";
+import { urlFor } from "../../../sanity/lib/image";
+import type { ModelDocument, ModelContentBlock } from "../../../types";
+import { renderModelContentBlock } from "../../lib/model-content-blocks";
+import Pill from "@/app/components/Pill";
+
+function modelImageSrcs(model: ModelDocument): string[] {
+  if (!model.images?.length) return [];
+  return model.images
+    .map((img) => {
+      if (img.asset?.url) return img.asset.url;
+      return urlFor(img).url() ?? null;
+    })
+    .filter((u): u is string => u !== null);
+}
+
+type PageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateStaticParams() {
+  return getAllModelSlugParams();
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const model = await getModelBySlug(slug);
+
+  if (!model) {
+    return { title: "Modell ikke funnet" };
+  }
+
+  return {
+    title: `${model.name} | Reika`,
+    description: model.description?.slice(0, 160),
+  };
+}
+
+export default async function ModelPage({ params }: PageProps) {
+  const { slug } = await params;
+  const [model, allModels] = await Promise.all([
+    getModelBySlug(slug),
+    getAllModels(),
+  ]);
+
+  if (!model) {
+    notFound();
+  }
+
+  const imageSrcs = modelImageSrcs(model);
+  const hasContentBlocks = Boolean(model.contentBlocks?.length);
+  const otherModels = mapModelDocumentsToModels(allModels).filter(
+    (m) => m.slug !== slug,
+  );
+
+  return (
+    <main>
+      <div className="grid grid-cols-6 md:grid-cols-12 gap-y-30 md:gap-y-40 lg:gap-y-50 xl:gap-y-60 mx-4 mt-80 mb-30 md:mb-40 lg:mb-50 xl:mb-60">
+        <div className="col-span-6 md:col-span-7 lg:col-span-8">
+          <div className="flex flex-col gap-6">
+            {model.name ? (
+              <div className="bg-white py-4 w-fit">
+                <Pill variant="green">{model.name}</Pill>
+              </div>
+            ) : null}
+            {model.description ? (
+              <div className="bg-white py-4 w-fit">
+                  <div className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
+                    {model.description}
+                  </div>
+              </div>
+            ) : null}
+          </div> 
+        </div>
+
+        {imageSrcs.length > 0 ? (
+          <ModelImageCarousel
+            images={imageSrcs.map((src, i) => ({
+              src,
+              alt: `${model.name} ${i + 1}`,
+            }))}
+          />
+        ) : null}
+      </div>
+
+      {hasContentBlocks
+        ? model.contentBlocks!.map((block: ModelContentBlock) =>
+            renderModelContentBlock(block, model),
+          )
+        : null}
+
+      {otherModels.length > 0 ? <OtherModelsGrid models={otherModels} /> : null}
+    </main>
+  );
+}

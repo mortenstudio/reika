@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "Mabry-Mono", system-ui, -apple-system, sans-serif;
+  --spacing-140: 35rem;
+
+  --text-5xl: 2.8rem;
+  --text-4xl: 2.5rem;
+  --text-3xl: 2.2rem;
+  --text-2xl: 1.9rem;
+  --text-xl: 1.6rem;
+  --text-lg: 1.4rem;
+  --text-md: 1.2rem;
+  --text-base: 1.1rem;
+  --text-sm: 1rem;
+  --text-xs: 0.9rem;
+  --text-2xs: 0.8rem;
+  --text-3xs: 0.7rem;
+
+  --text-5xl--line-height: 3.2rem;
+  --text-4xl--line-height: 2.9rem;
+  --text-3xl--line-height: 2.6rem;
+  --text-2xl--line-height: 2.3rem;
+  --text-xl--line-height: 2rem;
+  --text-lg--line-height: 1.6rem;
+  --text-md--line-height: 1.5rem;
+  --text-base--line-height: 1.4rem;
+  --text-sm--line-height: 1.3rem;
+  --text-xs--line-height: 1.2rem;
+  --text-2xs--line-height: 1rem;
+  --text-3xs--line-height: 0.9rem;
+}
+
+@font-face {
+  font-family: "Mabry";
+  src: url("/fonts/MabryPro.otf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mabry-Mono";
+  src: url("/fonts/MabryMonoPro.otf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background: #ffffff;
+  color: #171717;
+  font-family: "Mabry", system-ui, -apple-system, sans-serif;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
