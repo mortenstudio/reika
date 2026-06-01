@@ -1,0 +1,1509 @@
+[
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "name",
+        "type": "slug"
+      }
+    ],
+    "name": "media.tag",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "options": {
+          "accept": "video/*"
+        },
+        "description": "Video shown at the top of the page.",
+        "name": "video",
+        "type": "file"
+      },
+      {
+        "rows": 4,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Intro text shown below the page title.",
+        "name": "introduction",
+        "type": "text"
+      },
+      {
+        "description": "Modular content sections that make up the page body.",
+        "of": [
+          {
+            "type": "valuesBlock",
+            "title": "Values"
+          },
+          {
+            "type": "modelsBlock",
+            "title": "Models"
+          },
+          {
+            "type": "productionBlock",
+            "title": "Production"
+          },
+          {
+            "type": "accordionBlock",
+            "title": "Accordion"
+          }
+        ],
+        "name": "contentBlocks",
+        "type": "array"
+      },
+      {
+        "description": "Custom title for search engines. Falls back to the page name if left empty.",
+        "name": "seoTitle",
+        "type": "string",
+        "title": "SEO Title"
+      },
+      {
+        "rows": 4,
+        "description": "Short summary displayed in search engine results (recommended 150–160 characters).",
+        "name": "seoDescription",
+        "type": "text",
+        "title": "SEO Description"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Image shown when the page is shared on social media.",
+        "name": "seoImage",
+        "type": "image",
+        "title": "SEO Image"
+      }
+    ],
+    "name": "home",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Internal page name used in navigation and listings.",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "name"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "URL-friendly identifier generated from the name.",
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Optional header image.",
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "rows": 4,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Intro text shown below the page title.",
+        "name": "introduction",
+        "type": "text"
+      },
+      {
+        "description": "Modular content sections that make up the page body.",
+        "of": [
+          {
+            "type": "textBlock",
+            "title": "Text"
+          },
+          {
+            "type": "imagesBlock",
+            "title": "Images"
+          },
+          {
+            "type": "carouselBlock",
+            "title": "Carousel"
+          },
+          {
+            "type": "modelsBlock",
+            "title": "Models"
+          },
+          {
+            "type": "contactBlock",
+            "title": "Contact"
+          },
+          {
+            "type": "accordionBlock",
+            "title": "Accordion"
+          },
+          {
+            "type": "cardsBlock",
+            "title": "Cards"
+          }
+        ],
+        "name": "contentBlocks",
+        "type": "array"
+      },
+      {
+        "description": "Custom title for search engines. Falls back to the page name if left empty.",
+        "name": "seoTitle",
+        "type": "string",
+        "title": "SEO Title"
+      },
+      {
+        "rows": 4,
+        "description": "Short summary displayed in search engine results (recommended 150–160 characters).",
+        "name": "seoDescription",
+        "type": "text",
+        "title": "SEO Description"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Image shown when the page is shared on social media.",
+        "name": "seoImage",
+        "type": "image",
+        "title": "SEO Image"
+      }
+    ],
+    "name": "page",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "description": "Site name presented in the browser.",
+        "name": "siteName",
+        "type": "string"
+      },
+      {
+        "rows": 4,
+        "description": "Site description presented in SEO.",
+        "name": "siteDescription",
+        "type": "text"
+      },
+      {
+        "description": "Primary tagline displayed in the site header.",
+        "name": "tagline",
+        "type": "string"
+      },
+      {
+        "description": "Secondary tagline shown beneath the main tagline.",
+        "name": "subtagline",
+        "type": "string"
+      },
+      {
+        "description": "Content displayed in the site footer.",
+        "fields": [
+          {
+            "description": "Heading text above the contact email link.",
+            "name": "contactText",
+            "type": "string"
+          },
+          {
+            "description": "Email address displayed in the footer.",
+            "name": "contactEmail",
+            "type": "string"
+          },
+          {
+            "description": "Mailto or URL the email address links to.",
+            "name": "contactEmailUrl",
+            "type": "string",
+            "title": "Contact Email URL"
+          },
+          {
+            "description": "Heading text above the address link.",
+            "name": "findUsText",
+            "type": "string"
+          },
+          {
+            "description": "Physical address displayed in the footer.",
+            "name": "address",
+            "type": "string"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "description": "Link opened when the address is clicked (e.g. Google Maps).",
+            "name": "addressUrl",
+            "type": "url",
+            "title": "Address URL"
+          },
+          {
+            "description": "Heading text above the social media links.",
+            "name": "followUsText",
+            "type": "string"
+          },
+          {
+            "description": "List of social media profiles linked in the footer.",
+            "of": [
+              {
+                "fields": [
+                  {
+                    "options": {
+                      "list": [
+                        {
+                          "title": "Facebook",
+                          "value": "facebook"
+                        },
+                        {
+                          "title": "Instagram",
+                          "value": "instagram"
+                        },
+                        {
+                          "title": "Twitter",
+                          "value": "twitter"
+                        },
+                        {
+                          "title": "LinkedIn",
+                          "value": "linkedin"
+                        }
+                      ]
+                    },
+                    "description": "Social media platform name.",
+                    "name": "platform",
+                    "type": "string"
+                  },
+                  {
+                    "description": "Full URL to the social media profile.",
+                    "name": "url",
+                    "type": "string",
+                    "title": "URL"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "socialLinks",
+            "type": "array"
+          }
+        ],
+        "name": "footer",
+        "type": "object"
+      },
+      {
+        "description": "Pages shown in the main site navigation, in display order.",
+        "of": [
+          {
+            "to": [
+              {
+                "type": "page"
+              },
+              {
+                "type": "home"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to page or home"
+          }
+        ],
+        "name": "navigation",
+        "type": "array"
+      },
+      {
+        "description": "Custom title for search engines. Falls back to the page name if left empty.",
+        "name": "seoTitle",
+        "type": "string",
+        "title": "SEO Title"
+      },
+      {
+        "rows": 4,
+        "description": "Short summary displayed in search engine results (recommended 150–160 characters).",
+        "name": "seoDescription",
+        "type": "text",
+        "title": "SEO Description"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Image shown when the page is shared on social media.",
+        "name": "seoImage",
+        "type": "image",
+        "title": "SEO Image"
+      }
+    ],
+    "name": "settings",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Internal page name used in navigation and listings.",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "name",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "URL-friendly identifier generated from the name.",
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "rows": 4,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Short summary of the model shown in cards and listings.",
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Gallery images for the model. The first image is used as the main thumbnail.",
+        "of": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "type": "image"
+          }
+        ],
+        "name": "images",
+        "type": "array"
+      },
+      {
+        "options": {
+          "suffix": "kvm"
+        },
+        "description": "Gross floor area (bruksareal) in square metres.",
+        "name": "sizeBya",
+        "type": "string",
+        "title": "Size BYA"
+      },
+      {
+        "options": {
+          "suffix": "kvm"
+        },
+        "description": "Usable floor area (bruttoareal) in square metres.",
+        "name": "sizeBra",
+        "type": "string",
+        "title": "Size BRA"
+      },
+      {
+        "options": {
+          "suffix": "people"
+        },
+        "description": "Maximum number of people the model accommodates.",
+        "name": "capacity",
+        "type": "string"
+      },
+      {
+        "options": {
+          "suffix": "NOK"
+        },
+        "description": "Starting price in Norwegian kroner.",
+        "name": "price",
+        "type": "string"
+      },
+      {
+        "options": {
+          "suffix": "rooms"
+        },
+        "description": "Number of rooms, e.g. “3-5”.",
+        "name": "rooms",
+        "type": "string"
+      },
+      {
+        "options": {
+          "suffix": "floors"
+        },
+        "description": "Number of floors, e.g. “1-2”.",
+        "name": "floors",
+        "type": "string"
+      },
+      {
+        "options": {
+          "suffix": "bedrooms"
+        },
+        "description": "Number of bedrooms available in this model.",
+        "name": "bedrooms",
+        "type": "string"
+      },
+      {
+        "options": {
+          "suffix": "bathrooms"
+        },
+        "description": "Number of bathrooms available in this model.",
+        "name": "bathrooms",
+        "type": "string"
+      },
+      {
+        "options": {
+          "suffix": "kg"
+        },
+        "description": "Total weight of the model in kilograms.",
+        "name": "weight",
+        "type": "string"
+      },
+      {
+        "options": {
+          "suffix": "meter"
+        },
+        "description": "Internal ceiling height in metres.",
+        "name": "ceilingHeight",
+        "type": "string",
+        "title": "Ceiling height"
+      },
+      {
+        "options": {
+          "suffix": "modules"
+        },
+        "description": "e.g. “3/4”.",
+        "name": "modules",
+        "type": "string"
+      },
+      {
+        "description": "Modular content sections that make up the page body.",
+        "of": [
+          {
+            "description": "Displays specification fields from the General tab on this model.",
+            "type": "specificationsBlock",
+            "title": "Specifications"
+          },
+          {
+            "type": "textBlock",
+            "title": "Text"
+          },
+          {
+            "type": "floorPlanBlock",
+            "title": "Floor plan"
+          },
+          {
+            "type": "imageBlock",
+            "title": "Image"
+          },
+          {
+            "type": "imagesBlock",
+            "title": "Images"
+          },
+          {
+            "type": "carouselBlock",
+            "title": "Carousel"
+          },
+          {
+            "type": "cardsBlock",
+            "title": "Cards"
+          }
+        ],
+        "name": "contentBlocks",
+        "type": "array"
+      },
+      {
+        "description": "Custom title for search engines. Falls back to the page name if left empty.",
+        "name": "seoTitle",
+        "type": "string",
+        "title": "SEO Title"
+      },
+      {
+        "rows": 4,
+        "description": "Short summary displayed in search engine results (recommended 150–160 characters).",
+        "name": "seoDescription",
+        "type": "text",
+        "title": "SEO Description"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Image shown when the page is shared on social media.",
+        "name": "seoImage",
+        "type": "image",
+        "title": "SEO Image"
+      }
+    ],
+    "name": "model",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "options": {
+          "accept": "video/*"
+        },
+        "name": "video",
+        "type": "file"
+      }
+    ],
+    "name": "heroBlock",
+    "type": "object",
+    "title": "Hero"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "text",
+        "type": "text"
+      }
+    ],
+    "name": "introductionBlock",
+    "type": "object",
+    "title": "Introduction"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "type": "text"
+          }
+        ],
+        "name": "paragraphs",
+        "type": "array"
+      }
+    ],
+    "name": "valuesBlock",
+    "type": "object",
+    "title": "Values"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "to": [
+              {
+                "type": "model"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to model"
+          }
+        ],
+        "name": "models",
+        "type": "array"
+      }
+    ],
+    "name": "modelsBlock",
+    "type": "object",
+    "title": "Models"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "content",
+                "type": "text"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "items",
+        "type": "array",
+        "title": "Accordion Items"
+      }
+    ],
+    "name": "accordionBlock",
+    "type": "object",
+    "title": "Accordion"
+  },
+  {
+    "fields": [
+      {
+        "description": "Optional heading for the production timeline section",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "description": "Optional subheading or description",
+        "name": "subheading",
+        "type": "text"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string",
+                "title": "Phase Title"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "description",
+                "type": "text"
+              },
+              {
+                "description": "e.g., '2-3 dager', '1 uke'",
+                "name": "duration",
+                "type": "string"
+              },
+              {
+                "description": "List of key features or highlights for this phase",
+                "of": [
+                  {
+                    "type": "string"
+                  }
+                ],
+                "name": "features",
+                "type": "array",
+                "title": "Key Features"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "description": "Optional image or icon for this phase",
+                "name": "image",
+                "type": "image"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "phases",
+        "type": "array",
+        "title": "Production Phases"
+      }
+    ],
+    "name": "productionBlock",
+    "type": "object",
+    "title": "Production"
+  },
+  {
+    "fields": [
+      {
+        "name": "contactText",
+        "type": "string"
+      },
+      {
+        "name": "contactEmail",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "contactEmailUrl",
+        "type": "url",
+        "title": "Contact Email URL"
+      },
+      {
+        "name": "findUsText",
+        "type": "string"
+      },
+      {
+        "name": "address",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "addressUrl",
+        "type": "url",
+        "title": "Address URL"
+      },
+      {
+        "name": "followUsText",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "options": {
+                  "list": [
+                    {
+                      "title": "Facebook",
+                      "value": "facebook"
+                    },
+                    {
+                      "title": "Instagram",
+                      "value": "instagram"
+                    },
+                    {
+                      "title": "Twitter",
+                      "value": "twitter"
+                    },
+                    {
+                      "title": "LinkedIn",
+                      "value": "linkedin"
+                    }
+                  ]
+                },
+                "name": "platform",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "uri",
+                        "constraint": {
+                          "options": {
+                            "scheme": [
+                              "/^http$/",
+                              "/^https$/"
+                            ],
+                            "allowRelative": false,
+                            "relativeOnly": false,
+                            "allowCredentials": false
+                          }
+                        }
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "url",
+                "type": "url",
+                "title": "URL"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "socialLinks",
+        "type": "array"
+      }
+    ],
+    "name": "footerBlock",
+    "type": "object",
+    "title": "Footer"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Blue",
+              "value": "blue"
+            },
+            {
+              "title": "Green",
+              "value": "green"
+            },
+            {
+              "title": "Lime",
+              "value": "lime"
+            },
+            {
+              "title": "Brown",
+              "value": "brown"
+            }
+          ],
+          "layout": "radio"
+        },
+        "initialValue": "blue",
+        "hidden": "conditional",
+        "name": "pillColor",
+        "type": "string",
+        "title": "Pill color"
+      },
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "body",
+        "type": "array"
+      }
+    ],
+    "name": "textBlock",
+    "type": "object",
+    "title": "Text"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "image",
+                "type": "image"
+              },
+              {
+                "name": "alt",
+                "type": "string",
+                "title": "Alt text"
+              },
+              {
+                "name": "caption",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "images",
+        "type": "array"
+      }
+    ],
+    "name": "imagesBlock",
+    "type": "object",
+    "title": "Images"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "image",
+                "type": "image"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "slides",
+        "type": "array"
+      }
+    ],
+    "name": "carouselBlock",
+    "type": "object",
+    "title": "Carousel"
+  },
+  {
+    "fields": [
+      {
+        "description": "Small label above the heading (e.g. KOM I GANG).",
+        "name": "badge",
+        "type": "string"
+      },
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "rows": 3,
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "initialValue": "Send",
+        "name": "submitLabel",
+        "type": "string",
+        "title": "Submit button label"
+      }
+    ],
+    "name": "contactBlock",
+    "type": "object",
+    "title": "Contact"
+  },
+  {
+    "fields": [
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "image",
+                "type": "image",
+                "title": "Floor plan"
+              },
+              {
+                "name": "alt",
+                "type": "string",
+                "title": "Alt text"
+              },
+              {
+                "name": "caption",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "floorPlans",
+        "type": "array",
+        "title": "Floor plans"
+      }
+    ],
+    "name": "floorPlanBlock",
+    "type": "object",
+    "title": "Floor plan"
+  },
+  {
+    "fields": [
+      {
+        "options": {
+          "hotspot": true
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "name": "alt",
+        "type": "string",
+        "title": "Alt text"
+      },
+      {
+        "name": "caption",
+        "type": "string"
+      }
+    ],
+    "name": "imageBlock",
+    "type": "object",
+    "title": "Image"
+  },
+  {
+    "fields": [
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "name": "description",
+                "type": "text"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "name": "image",
+                "type": "image"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "cards",
+        "type": "array"
+      }
+    ],
+    "name": "cardsBlock",
+    "type": "object",
+    "title": "Cards"
+  },
+  {
+    "description": "Displays specification fields from the General tab on this model.",
+    "fields": [
+      {
+        "initialValue": "general",
+        "readOnly": true,
+        "hidden": true,
+        "name": "placeholder",
+        "type": "string"
+      }
+    ],
+    "name": "specificationsBlock",
+    "type": "object",
+    "title": "Specifications"
+  }
+]
