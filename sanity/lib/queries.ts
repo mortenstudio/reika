@@ -48,6 +48,18 @@ export const homePageQuery = groq`
             _type,
             url
           }
+        },
+        types[] {
+          _key,
+          name,
+          image {
+            asset-> {
+              _id,
+              _type,
+              url
+            }
+          },
+          description
         }
       },
       phases[] {
@@ -231,6 +243,18 @@ export const modelBySlugQuery = groq`
           }
         }
       }
+    },
+    types[] {
+      _key,
+      name,
+      image {
+        asset-> {
+          _id,
+          _type,
+          url
+        }
+      },
+      description
     }
   }
 `;
@@ -298,6 +322,18 @@ export const pageBySlugQuery = groq`
             _type,
             url
           }
+        },
+        types[] {
+          _key,
+          name,
+          image {
+            asset-> {
+              _id,
+              _type,
+              url
+            }
+          },
+          description
         }
       },
       steps[] {

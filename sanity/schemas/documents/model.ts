@@ -1,5 +1,5 @@
 import { defineType, defineField, ALL_FIELDS_GROUP } from "sanity";
-import { BlockElementIcon, DocumentIcon, EditIcon, SearchIcon, TagIcon } from "@sanity/icons";
+import { BlockElementIcon, DocumentIcon, EditIcon, SearchIcon, TagIcon, CopyIcon } from "@sanity/icons";
 import { SuffixInput } from '../../components/SuffixInput';
 
 export default defineType({
@@ -22,6 +22,11 @@ export default defineType({
       name: "meta",
       title: "Meta",
       icon: TagIcon,
+    },
+    {
+      name: "types",
+      title: "Types",
+      icon: CopyIcon,
     },
     {
       name: "contentBlocks",
@@ -224,6 +229,50 @@ export default defineType({
       group: "meta",
     }),
     defineField({
+      name: "types",
+      title: "Types",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({
+              name: "name",
+              title: "Name",
+              type: "string",
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: "image",
+              title: "Image",
+              type: "image",
+              options: { hotspot: true },
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: "description",
+              title: "Description",
+              type: "array",
+              of: [{ type: "block" }],
+            }),
+          ],
+          preview: {
+            select: {
+              name: "name",
+              media: "image",
+            },
+            prepare({ name, media }) {
+              return {
+                title: name,
+                media,
+              };
+            },
+          },
+        },
+      ],
+      group: "types",
+    }),
+    defineField({
       name: "contentBlocks",
       title: "Content Blocks",
       type: "array",
@@ -236,6 +285,7 @@ export default defineType({
         { type: "imagesBlock" },
         { type: "carouselBlock" },
         { type: "cardsBlock" },
+        { type: "intTypeBlock" },
       ],
       group: "contentBlocks",
     }),

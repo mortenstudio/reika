@@ -5,6 +5,7 @@ import ModelsBlock from "../blocks/modelsBlock";
 import ProductionBlock from "../blocks/productionBlock";
 import ValuesBlock from "../blocks/valuesBlock";
 import AccordionBlock from "../blocks/accordionBlock";
+import TypeBlock from "../blocks/typeBlock";
 
 export function renderContentBlock(block: ContentBlock): ReactNode {
   switch (block._type) {
@@ -14,6 +15,8 @@ export function renderContentBlock(block: ContentBlock): ReactNode {
       return <ValuesBlock key={block._key} data={block} />;
     case "modelsBlock":
       return <ModelsBlock key={block._key} data={block} />;
+    case "typeBlock":
+      return <TypeBlock key={block._key} data={block} />;
     case "productionBlock":
       return <ProductionBlock key={block._key} data={block} />;
     case "accordionBlock":

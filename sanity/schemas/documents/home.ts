@@ -58,6 +58,7 @@ export default defineType({
         { type: "modelsBlock" },
         { type: "productionBlock" },
         { type: "accordionBlock" },
+        { type: "typeBlock" },
       ],
       group: "contentBlocks",
     }),

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { ModelContentBlock, ModelSpecifications } from "../../types";
+import type { ModelContentBlock, ModelSpecifications, ModelDocument } from "../../types";
 import TextBlock from "../blocks/textBlock";
 import FloorPlanBlock from "../blocks/floorPlanBlock";
 import ImageBlock from "../blocks/imageBlock";
@@ -7,6 +7,7 @@ import CarouselBlock from "../blocks/carouselBlock";
 import CardsBlock from "../blocks/cardsBlock";
 import ImagesBlock from "../blocks/imagesBlock";
 import SpecificationsBlock from "../blocks/specificationsBlock";
+import IntTypeBlock from "../blocks/intTypeBlock";
 
 function modelSpecifications(
   model: ModelSpecifications,
@@ -28,7 +29,7 @@ function modelSpecifications(
 
 export function renderModelContentBlock(
   block: ModelContentBlock,
-  model?: ModelSpecifications,
+  model?: ModelDocument,
 ): ReactNode {
   switch (block._type) {
     case "specificationsBlock":
@@ -50,6 +51,8 @@ export function renderModelContentBlock(
       return <CarouselBlock key={block._key} data={block} />;
     case "cardsBlock":
       return <CardsBlock key={block._key} data={block} />;
+    case "intTypeBlock":
+      return <IntTypeBlock key={block._key} data={block} types={model?.types} />;
     default:
       return null;
   }

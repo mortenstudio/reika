@@ -22,12 +22,6 @@ export default defineType({
       type: "text",
       rows: 3,
     }),
-    defineField({
-      name: "submitLabel",
-      title: "Submit button label",
-      type: "string",
-      initialValue: "Send",
-    }),
   ],
   preview: {
     select: {

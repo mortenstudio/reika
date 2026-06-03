@@ -128,6 +128,7 @@ export type ContentBlock =
   | IntroductionBlock
   | ValuesBlock
   | ModelsBlock
+  | TypeBlock
   | AccordionBlock
   | ProductionBlock;
 
@@ -241,6 +242,29 @@ export interface CardsBlock {
   cards?: CardItem[];
 }
 
+export interface ModelType {
+  _key: string;
+  name: string;
+  image?: SanityImageAsset;
+  description?: PortableTextBlock[];
+}
+
+export interface TypeBlockModel {
+  _id: string;
+  _type: string;
+  name: string;
+  slug?: { current?: string };
+  types?: ModelType[];
+}
+
+export interface TypeBlock {
+  _type: "typeBlock";
+  _key: string;
+  title?: string;
+  heading?: string;
+  models?: TypeBlockModel[];
+}
+
 export type PageContentBlock =
   | TextBlock
   | ImagesBlock
@@ -251,6 +275,13 @@ export type PageContentBlock =
   | StepsBlock
   | CardsBlock;
 
+export interface IntTypeBlock {
+  _type: "intTypeBlock";
+  _key: string;
+  title?: string;
+  heading?: string;
+}
+
 export type ModelContentBlock =
   | SpecificationsBlock
   | TextBlock
@@ -258,7 +289,8 @@ export type ModelContentBlock =
   | ImageBlock
   | ImagesBlock
   | CarouselBlock
-  | CardsBlock;
+  | CardsBlock
+  | IntTypeBlock;
 
 // Sanity Document Types
 export interface HomeDocument {
@@ -326,6 +358,7 @@ export interface ModelDocument extends ModelSpecifications {
       url: string;
     };
   }>;
+  types?: ModelType[];
   contentBlocks?: ModelContentBlock[];
 }
 

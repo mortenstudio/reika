@@ -2,6 +2,8 @@ import heroBlock from "./blocks/heroBlock";
 import introductionBlock from "./blocks/introductionBlock";
 import valuesBlock from "./blocks/valuesBlock";
 import modelsBlock from "./blocks/modelsBlock";
+import typeBlock from "./blocks/typeBlock";
+import intTypeBlock from "./blocks/intTypeBlock";
 import accordionBlock from "./blocks/accordionBlock";
 import productionBlock from "./blocks/productionBlock";
 import footerBlock from "./blocks/footerBlock";
@@ -28,6 +30,8 @@ export const schemaTypes = [
   introductionBlock,
   valuesBlock,
   modelsBlock,
+  typeBlock,
+  intTypeBlock,
   accordionBlock,
   productionBlock,
   footerBlock,
