@@ -45,7 +45,7 @@ export default function FooterBlock({ data }: FooterBlockProps) {
                   href={`mailto:${contactEmailUrl}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-fit text-xs md:text-sm lg:text-base underline underline-offset-4 decoration-1 decoration-white/33 hover:decoration-transparent transition-all duration-200"
+                  className="w-fit text-xs md:text-sm lg:text-base underline underline-offset-3 decoration-1 decoration-white/33 hover:decoration-transparent transition-all duration-200"
                 >
                   {contactEmail}
                 </a>
@@ -60,7 +60,7 @@ export default function FooterBlock({ data }: FooterBlockProps) {
                   href={addressUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-fit text-xs md:text-sm lg:text-base underline underline-offset-4 decoration-1 decoration-white/33 hover:decoration-transparent transition-all duration-200"
+                  className="w-fit text-xs md:text-sm lg:text-base underline underline-offset-3 decoration-1 decoration-white/33 hover:decoration-transparent transition-all duration-200"
                 >
                   {address}
                 </a>
@@ -78,7 +78,7 @@ export default function FooterBlock({ data }: FooterBlockProps) {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-fit text-xs md:text-sm lg:text-base underline underline-offset-4 decoration-1 decoration-white/33 hover:decoration-transparent transition-all duration-200"
+                      className="w-fit text-xs md:text-sm lg:text-base underline underline-offset-3 decoration-1 decoration-white/33 hover:decoration-transparent transition-all duration-200"
                     >
                       {formatPlatform(link.platform)}
                     </a>

@@ -27,7 +27,7 @@ export default function IntTypeBlock({ data, types }: IntTypeBlockProps) {
           <div className="flex flex-col md:gap-4 lg:gap-8 lg:w-3/4 mb-8">
             {data?.title && (
               <div className="bg-white py-4 w-fit">
-                <Pill variant="green">{data.title}</Pill>
+                <Pill variant="lightgreen">{data.title}</Pill>
               </div>
             )}
 

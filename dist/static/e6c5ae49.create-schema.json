@@ -64,6 +64,10 @@
           {
             "type": "accordionBlock",
             "title": "Accordion"
+          },
+          {
+            "type": "typeBlock",
+            "title": "Type"
           }
         ],
         "name": "contentBlocks",
@@ -575,6 +579,171 @@
         "type": "string"
       },
       {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "image",
+                "type": "image"
+              },
+              {
+                "of": [
+                  {
+                    "marks": {
+                      "annotations": [
+                        {
+                          "i18nTitleKey": "inputs.portable-text.annotation.link",
+                          "options": {
+                            "modal": {
+                              "type": "popover"
+                            }
+                          },
+                          "fields": [
+                            {
+                              "validation": [
+                                {
+                                  "rules": [
+                                    {
+                                      "flag": "uri",
+                                      "constraint": {
+                                        "options": {
+                                          "scheme": [
+                                            "/^http$/",
+                                            "/^https$/",
+                                            "/^tel$/",
+                                            "/^mailto$/"
+                                          ],
+                                          "allowRelative": true,
+                                          "relativeOnly": false,
+                                          "allowCredentials": false
+                                        }
+                                      }
+                                    }
+                                  ],
+                                  "level": "error"
+                                }
+                              ],
+                              "description": "A valid web, email, phone, or relative link.",
+                              "name": "href",
+                              "type": "url",
+                              "title": "Link"
+                            }
+                          ],
+                          "name": "link",
+                          "type": "object"
+                        }
+                      ],
+                      "decorators": [
+                        {
+                          "value": "strong",
+                          "title": "Strong"
+                        },
+                        {
+                          "value": "em",
+                          "title": "Italic"
+                        },
+                        {
+                          "value": "code",
+                          "title": "Code"
+                        },
+                        {
+                          "value": "underline",
+                          "title": "Underline"
+                        },
+                        {
+                          "value": "strike-through",
+                          "title": "Strike"
+                        }
+                      ]
+                    },
+                    "lists": [
+                      {
+                        "value": "bullet",
+                        "title": "Bulleted list"
+                      },
+                      {
+                        "value": "number",
+                        "title": "Numbered list"
+                      }
+                    ],
+                    "styles": [
+                      {
+                        "value": "normal",
+                        "title": "Normal"
+                      },
+                      {
+                        "value": "h1",
+                        "title": "Heading 1"
+                      },
+                      {
+                        "value": "h2",
+                        "title": "Heading 2"
+                      },
+                      {
+                        "value": "h3",
+                        "title": "Heading 3"
+                      },
+                      {
+                        "value": "h4",
+                        "title": "Heading 4"
+                      },
+                      {
+                        "value": "h5",
+                        "title": "Heading 5"
+                      },
+                      {
+                        "value": "h6",
+                        "title": "Heading 6"
+                      },
+                      {
+                        "value": "blockquote",
+                        "title": "Quote"
+                      }
+                    ],
+                    "of": [],
+                    "type": "block"
+                  }
+                ],
+                "name": "description",
+                "type": "array"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "types",
+        "type": "array"
+      },
+      {
         "description": "Modular content sections that make up the page body.",
         "of": [
           {
@@ -605,6 +774,10 @@
           {
             "type": "cardsBlock",
             "title": "Cards"
+          },
+          {
+            "type": "intTypeBlock",
+            "title": "Type"
           }
         ],
         "name": "contentBlocks",
@@ -731,6 +904,62 @@
     "name": "modelsBlock",
     "type": "object",
     "title": "Models"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "to": [
+              {
+                "type": "model"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to model"
+          }
+        ],
+        "name": "models",
+        "type": "array"
+      }
+    ],
+    "name": "typeBlock",
+    "type": "object",
+    "title": "Type"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "heading",
+        "type": "string"
+      }
+    ],
+    "name": "intTypeBlock",
+    "type": "object",
+    "title": "Type"
   },
   {
     "fields": [
@@ -1324,12 +1553,6 @@
         "rows": 3,
         "name": "description",
         "type": "text"
-      },
-      {
-        "initialValue": "Send",
-        "name": "submitLabel",
-        "type": "string",
-        "title": "Submit button label"
       }
     ],
     "name": "contactBlock",

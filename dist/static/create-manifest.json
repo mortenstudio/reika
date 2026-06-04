@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "createdAt": "2026-06-01T19:03:35.019Z",
+  "createdAt": "2026-06-04T06:09:27.472Z",
   "workspaces": [
     {
       "name": "reika",
@@ -12,7 +12,7 @@
       "mediaLibrary": {
         "enabled": false
       },
-      "schema": "cd9f7e2b.create-schema.json",
+      "schema": "e6c5ae49.create-schema.json",
       "tools": "568f5585.create-tools.json"
     }
   ],

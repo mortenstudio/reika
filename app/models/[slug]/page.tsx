@@ -66,7 +66,7 @@ export default async function ModelPage({ params }: PageProps) {
           <div className="flex flex-col md:gap-4 lg:gap-8">
             {model.name ? (
               <div className="bg-white py-4 w-fit">
-                <Pill variant="green">{model.name}</Pill>
+                <Pill variant="blue">{model.name}</Pill>
               </div>
             ) : null}
             {model.description ? (

@@ -2,12 +2,15 @@ import type { ContactBlock as ContactBlockData } from "../../types";
 import Pill from "../components/Pill";
 import ContactBlockForm from "./ContactBlockForm";
 import ScrollReveal from "../components/ScrollReveal";
+import { getAllModels } from "../lib/models";
 
 interface ContactBlockProps {
   data?: Omit<ContactBlockData, "_type" | "_key">;
 }
 
-export default function ContactBlock({ data }: ContactBlockProps) {
+export default async function ContactBlock({ data }: ContactBlockProps) {
+  const models = await getAllModels();
+  const modelNames = models.map((m) => m.name).filter(Boolean);
 
   return (
     <section>
@@ -30,7 +33,7 @@ export default function ContactBlock({ data }: ContactBlockProps) {
         </div>
         <div className="col-span-6 md:col-start-7 md:col-span-5">
           <div className="bg-white py-4">
-            <ContactBlockForm submitLabel={data?.submitLabel} />
+            <ContactBlockForm submitLabel={data?.submitLabel} modelNames={modelNames} />
           </div>
         </div>
       </ScrollReveal>

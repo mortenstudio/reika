@@ -91,7 +91,7 @@ function ProductionBlockView({
           <div className="flex flex-col md:gap-4 lg:gap-8 lg:w-3/4">
             <div className="bg-white py-4 w-fit">
               {heading ? (
-                <Pill variant="green">{heading}</Pill>
+                <Pill variant="blue">{heading}</Pill>
               ) : null}
             </div>
             <div className="bg-white py-4">

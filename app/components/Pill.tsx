@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export type PillVariant = "blue" | "green" | "lime" | "brown" | "yellow";
+export type PillVariant = "blue" | "green" | "lime" | "brown" | "yellow" | "lightgreen";
 
 const variantClasses: Record<PillVariant, string> = {
   blue: "bg-[#B2DDF4] text-black",
@@ -8,6 +8,7 @@ const variantClasses: Record<PillVariant, string> = {
   lime: "bg-[#E5F1CC] text-black",
   brown: "bg-[#534129] text-white",
   yellow: "bg-[#FFEA7D] text-black",
+  lightgreen: "bg-[#E5F1CC] text-black",
 };
 
 interface PillProps {

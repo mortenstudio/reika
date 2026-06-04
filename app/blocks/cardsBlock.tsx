@@ -19,7 +19,7 @@ export default function CardsBlock({ data }: CardsBlockProps) {
         <div className="col-span-6 md:col-span-12 flex flex-col md:gap-4 lg:gap-8">
           <div className="bg-white py-4 w-fit">
             {data.heading ? (
-              <Pill variant="green">{data.heading}</Pill>
+              <Pill variant="lightgreen">{data.heading}</Pill>
             ) : null}
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:gap-4 lg:gap-8">

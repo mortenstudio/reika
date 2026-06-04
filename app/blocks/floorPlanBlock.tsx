@@ -38,7 +38,7 @@ function FloorPlanCard({
         />
       </div>
       {item.caption ? (
-        <figcaption className="text-sm md:text-base opacity-70">
+        <figcaption className="text-xs md:text-sm lg:text-base bg-white pt-1.5 pb-4 md:w-3/4">
           {item.caption}
         </figcaption>
       ) : null}
