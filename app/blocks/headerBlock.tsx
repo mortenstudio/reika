@@ -154,11 +154,17 @@ export default function HeaderBlock({
         >
           {navigationItems.map((page: NavigationPage) => {
             const href = pageHref(page.slug?.current);
+            const isActive =
+              href === "/" ? pathname === "/" : pathname.startsWith(href);
             return (
               <Link
                 key={page._id}
                 href={href}
-                className="bg-[#ECE7DA] text-black rounded-md px-2.5 lg:px-3 py-1.5 lg:py-2 cursor-pointer text-xs md:text-sm lg:text-base text-right select-none decoration-black/25 w-fit hover:decoration-transparent hover:rounded-[20px] hover:bg-[#534129] hover:text-white transition-all duration-200"
+                className={`px-2.5 lg:px-3 py-1.5 lg:py-2 cursor-pointer text-xs md:text-sm lg:text-base text-right select-none w-fit transition-all duration-200 ${
+                  isActive
+                    ? "bg-[#534129] text-white rounded-full"
+                    : "bg-[#ECE7DA] text-black rounded-md hover:rounded-full hover:bg-[#534129] hover:text-white"
+                }`}
               >
                 {navigationLabel(page)}
               </Link>

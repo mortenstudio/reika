@@ -1,3 +1,5 @@
+export const revalidate = 60;
+
 import { getHomePageData } from "./lib/data";
 import { resolveHeroBlobVideoUrl } from "./lib/hero-video";
 import { renderContentBlock } from "./lib/content-blocks";
