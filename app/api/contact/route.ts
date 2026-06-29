@@ -16,7 +16,8 @@ const schema = z.object({
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: Number(process.env.SMTP_PORT),
-  secure: false,
+  secure: Number(process.env.SMTP_PORT) === 465,
+  authMethod: "LOGIN",
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
@@ -28,8 +29,8 @@ export async function POST(request: Request) {
     const body = await request.json();
     const parsed = schema.parse(body);
 
-    await transporter.sendMail({
-      from: process.env.SMTP_FROM_EMAIL,
+    const info = await transporter.sendMail({
+      from: `"Reika Kontaktskjema" <${process.env.SMTP_FROM_EMAIL}>`,
       to: process.env.SMTP_TO_EMAIL,
       replyTo: parsed.email,
       subject: `Ny kontaktforespørsel fra ${parsed.firstName} ${parsed.lastName}`,
@@ -43,6 +44,8 @@ export async function POST(request: Request) {
         ${parsed.interestedModel ? `<p><strong>Interessert i modell:</strong> ${parsed.interestedModel}</p>` : ""}
       `,
     });
+
+    console.log("Email sent:", { messageId: info.messageId, response: info.response });
 
     return NextResponse.json({ success: true });
   } catch (error) {
