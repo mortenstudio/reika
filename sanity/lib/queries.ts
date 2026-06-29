@@ -6,16 +6,14 @@ export const homePageQuery = groq`
     _type,
     _rev,
     title,
-    metaTitle,
-    metaDescription,
-    ogImage {
+    seoTitle,
+    seoDescription,
+    seoImage {
       asset-> {
         _id,
-        _type,
         url
       }
     },
-    canonicalUrl,
     introduction,
     hero {
       ...,
@@ -188,6 +186,14 @@ export const modelBySlugQuery = groq`
     name,
     slug,
     description,
+    seoTitle,
+    seoDescription,
+    seoImage {
+      asset-> {
+        _id,
+        url
+      }
+    },
     size,
     capacity,
     price,
@@ -280,6 +286,14 @@ export const pageBySlugQuery = groq`
     slug,
     description,
     introduction,
+    seoTitle,
+    seoDescription,
+    seoImage {
+      asset-> {
+        _id,
+        url
+      }
+    },
     image {
       asset-> {
         _id,

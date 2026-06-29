@@ -38,10 +38,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: "Modell ikke funnet" };
   }
 
-  return {
-    title: `${model.name} | Reika`,
-    description: model.description?.slice(0, 160),
+  const metadata: Metadata = {
+    title: model.seoTitle || `${model.name} | Reika`,
+    description: model.seoDescription || model.description?.slice(0, 160),
   };
+
+  if (model.seoImage?.asset?.url) {
+    metadata.openGraph = {
+      images: [{ url: model.seoImage.asset.url }],
+    };
+    metadata.twitter = {
+      card: "summary_large_image",
+      images: [model.seoImage.asset.url],
+    };
+  }
+
+  return metadata;
 }
 
 export default async function ModelPage({ params }: PageProps) {

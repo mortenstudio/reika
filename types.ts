@@ -293,34 +293,7 @@ export type ModelContentBlock =
   | IntTypeBlock;
 
 // Sanity Document Types
-export interface HomeDocument {
-  _id: string;
-  _type: "home";
-  _rev?: string;
-  title?: string;
-  metaTitle?: string;
-  metaDescription?: string;
-  ogImage?: {
-    asset?: {
-      _id: string;
-      _type: string;
-      url: string;
-    };
-  };
-  canonicalUrl?: string;
-  introduction?: string;
-  hero?: Hero;
-  contentBlocks?: ContentBlock[];
-}
-
-export interface SettingsDocument {
-  _id: string;
-  _type: "settings";
-  _rev?: string;
-  siteName?: string;
-  siteDescription?: string;
-  tagline?: string;
-  subtagline?: string;
+export interface SeoFields {
   seoTitle?: string;
   seoDescription?: string;
   seoImage?: {
@@ -329,6 +302,26 @@ export interface SettingsDocument {
       url?: string;
     };
   };
+}
+
+export interface HomeDocument extends SeoFields {
+  _id: string;
+  _type: "home";
+  _rev?: string;
+  title?: string;
+  introduction?: string;
+  hero?: Hero;
+  contentBlocks?: ContentBlock[];
+}
+
+export interface SettingsDocument extends SeoFields {
+  _id: string;
+  _type: "settings";
+  _rev?: string;
+  siteName?: string;
+  siteDescription?: string;
+  tagline?: string;
+  subtagline?: string;
   navigation?: NavigationPage[];
   footer?: {
     contactText?: string;
@@ -345,7 +338,7 @@ export interface SettingsDocument {
   };
 }
 
-export interface ModelDocument extends ModelSpecifications {
+export interface ModelDocument extends ModelSpecifications, SeoFields {
   _id: string;
   _type: "model";
   _rev?: string;
@@ -370,7 +363,7 @@ export interface ModelDocument extends ModelSpecifications {
   contentBlocks?: ModelContentBlock[];
 }
 
-export interface PageDocument {
+export interface PageDocument extends SeoFields {
   _id: string;
   _type: "page";
   _rev?: string;

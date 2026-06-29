@@ -34,12 +34,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: "Side ikke funnet" };
   }
 
-  const summary = page.description?.trim() || page.introduction?.trim();
+  const fallbackDescription = page.description?.trim() || page.introduction?.trim();
 
-  return {
-    title: `${page.name} | Reika`,
-    description: summary?.slice(0, 160),
+  const metadata: Metadata = {
+    title: page.seoTitle || `${page.name} | Reika`,
+    description: page.seoDescription || fallbackDescription?.slice(0, 160),
   };
+
+  if (page.seoImage?.asset?.url) {
+    metadata.openGraph = {
+      images: [{ url: page.seoImage.asset.url }],
+    };
+    metadata.twitter = {
+      card: "summary_large_image",
+      images: [page.seoImage.asset.url],
+    };
+  }
+
+  return metadata;
 }
 
 export default async function DynamicPage({ params }: PageProps) {
