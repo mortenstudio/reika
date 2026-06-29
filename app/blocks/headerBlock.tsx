@@ -2,16 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useLayoutEffect, useRef } from "react";
-import { animate, motion, stagger } from "framer-motion";
-import type { AnimationPlaybackControls } from "framer-motion";
-import Logo from "../components/Logo";
+import { motion } from "framer-motion";
+import LogoLottie from "../components/LogoLottie";
 import { DEFAULT_HEADER_DATA } from "../lib/constants";
 import { EASING } from "../lib/animations";
 import type { NavigationPage, SettingsDocument } from "../../types";
 
 /** Matches hero video grow + pause before header reveal */
-const HEADER_REVEAL_DELAY_S = 1.8;
+const HEADER_REVEAL_DELAY_S = 1.5;
 
 const revealTransition = {
   duration: 1,
@@ -60,39 +58,7 @@ export default function HeaderBlock({
   const navigation = data?.navigation;
   const navigationItems = navigation ?? [];
 
-  const logoSvgRef = useRef<SVGSVGElement>(null);
-  const pathAnimationRef = useRef<AnimationPlaybackControls | null>(null);
-
-  useLayoutEffect(() => {
-    pathAnimationRef.current?.stop();
-
-    const logoSvg = logoSvgRef.current;
-    if (!logoSvg) return;
-
-    const pathList = Array.from(logoSvg.querySelectorAll("path"));
-    if (!pathList.length) return;
-
-    if (!shouldAnimate) {
-      animate(pathList, { opacity: 1, y: 0 }, { duration: 0 });
-      return;
-    }
-
-    animate(pathList, { opacity: 0, y: 10 }, { duration: 0 });
-
-    const delayMs = isHome ? HEADER_REVEAL_DELAY_S * 1000 : 0;
-    const timer = window.setTimeout(() => {
-      pathAnimationRef.current = animate(pathList, { opacity: 1, y: 0 }, {
-        duration: 1,
-        delay: stagger(0.1),
-        ease: EASING.smooth,
-      });
-    }, delayMs);
-
-    return () => {
-      window.clearTimeout(timer);
-      pathAnimationRef.current?.stop();
-    };
-  }, [pathname, isHome, shouldAnimate]);
+  const lottieDelayMs = shouldAnimate && isHome ? HEADER_REVEAL_DELAY_S * 1000 : 0;
 
   const motionProps = shouldAnimate
     ? {
@@ -123,8 +89,11 @@ export default function HeaderBlock({
         className="absolute top-4 left-0 right-0 pointer-events-auto"
         {...logoMotionProps}
       >
-        <Link href="/" aria-label="Reika home" className="flex w-full md:w-fit">
-          <Logo ref={logoSvgRef} className="bg-white mx-4 pb-4 fill-black" />
+        <Link href="/" aria-label="Reika home" className="flex w-full md:w-fit overflow-visible!">
+          <LogoLottie
+            className="bg-white mx-4 pb-4 w-full md:w-[calc(25vw-2rem)] h-fit overflow-visible! *:overflow-visible!"
+            delayMs={lottieDelayMs}
+          />
         </Link>
       </motion.div>
 

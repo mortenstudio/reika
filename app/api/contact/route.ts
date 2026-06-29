@@ -8,6 +8,9 @@ const schema = z.object({
   phone: z.string().min(1, "Telefonnummer er påkrevd"),
   email: z.email("Ugyldig e-postadresse"),
   company: z.string().optional(),
+  hasProperty: z.string().optional(),
+  interestedModel: z.string().optional(),
+  privacyConsent: z.literal("on"),
 });
 
 const transporter = nodemailer.createTransport({
@@ -28,6 +31,7 @@ export async function POST(request: Request) {
     await transporter.sendMail({
       from: process.env.SMTP_FROM_EMAIL,
       to: process.env.SMTP_TO_EMAIL,
+      replyTo: parsed.email,
       subject: `Ny kontaktforespørsel fra ${parsed.firstName} ${parsed.lastName}`,
       html: `
         <h2>Ny kontaktforespørsel</h2>
@@ -35,6 +39,8 @@ export async function POST(request: Request) {
         <p><strong>Telefon:</strong> ${parsed.phone}</p>
         <p><strong>E-post:</strong> ${parsed.email}</p>
         ${parsed.company ? `<p><strong>Firma:</strong> ${parsed.company}</p>` : ""}
+        ${parsed.hasProperty ? `<p><strong>Har tomt:</strong> ${parsed.hasProperty}</p>` : ""}
+        ${parsed.interestedModel ? `<p><strong>Interessert i modell:</strong> ${parsed.interestedModel}</p>` : ""}
       `,
     });
 
