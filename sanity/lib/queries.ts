@@ -116,6 +116,14 @@ export const settingsQuery = groq`
     siteDescription,
     tagline,
     subtagline,
+    seoTitle,
+    seoDescription,
+    seoImage {
+      asset-> {
+        _id,
+        url
+      }
+    },
     navigation[]-> {
       _id,
       _type,

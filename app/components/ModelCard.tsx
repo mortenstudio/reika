@@ -109,7 +109,7 @@ const ModelCard = forwardRef<HTMLDivElement, ModelCardProps>(
         </div>
         <div className="bg-[#E5F1CC] rounded-md p-4 flex flex-col gap-3">
           <h3 className="text-xs md:text-sm lg:text-base">{model.name}</h3>
-          <p className="text-xs md:text-sm lg:text-base lg:w-1/2 mb-12">
+          <p className="text-xs md:text-sm lg:text-base mb-12">
             {model.description}
           </p>
           <div className="flex flex-row flex-wrap gap-1 w-5/6">

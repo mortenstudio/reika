@@ -321,6 +321,14 @@ export interface SettingsDocument {
   siteDescription?: string;
   tagline?: string;
   subtagline?: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  seoImage?: {
+    asset?: {
+      _id?: string;
+      url?: string;
+    };
+  };
   navigation?: NavigationPage[];
   footer?: {
     contactText?: string;
