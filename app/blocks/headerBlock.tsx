@@ -91,7 +91,7 @@ export default function HeaderBlock({
       >
         <Link href="/" aria-label="Reika home" className="flex w-full md:w-fit overflow-visible!">
           <LogoLottie
-            className="bg-white mx-4 pb-4 w-full md:w-[calc(25vw-2rem)] h-fit overflow-visible! *:overflow-visible!"
+            className="bg-white mx-4 pb-4 w-full md:w-[calc(25vw-2rem)] h-[29vw] md:h-[7vw] overflow-visible! *:overflow-visible!"
             delayMs={lottieDelayMs}
           />
         </Link>
