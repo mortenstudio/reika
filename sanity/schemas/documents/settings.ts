@@ -56,6 +56,15 @@ export default defineType({
       group: "general",
     }),
     defineField({
+      name: "contactFormEmail",
+      title: "Contact form recipient",
+      type: "email",
+      description:
+        "Email address that receives submissions from the contact form.",
+      group: "general",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: "footer",
       title: "Footer",
       type: "object",

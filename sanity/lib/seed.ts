@@ -42,6 +42,7 @@ export async function seedSanity() {
       siteDescription: "Modulhus som vokser med deg",
       tagline: "Modulhus som vokser med deg",
       subtagline: "Bærekraftig og fleksibelt",
+      contactFormEmail: "morten@anti.as",
       footer: {
         contactText: "Vi hjelper deg gjerne med ditt neste prosjekt",
         contactEmail: "Send oss en e-post",

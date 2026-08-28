@@ -114,6 +114,7 @@ export const settingsQuery = groq`
     siteDescription,
     tagline,
     subtagline,
+    contactFormEmail,
     seoTitle,
     seoDescription,
     seoImage {
@@ -141,6 +142,12 @@ export const settingsQuery = groq`
         url
       }
     }
+  }
+`;
+
+export const contactFormEmailQuery = groq`
+  *[_type == "settings" && _id == "settings"][0] {
+    contactFormEmail
   }
 `;
 

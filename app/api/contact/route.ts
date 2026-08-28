@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { z } from "zod/v4";
+import { client } from "../../../sanity/lib/client";
+import { contactFormEmailQuery } from "../../../sanity/lib/queries";
 
 const schema = z.object({
   firstName: z.string().min(1, "Fornavn er påkrevd"),
@@ -17,10 +19,13 @@ const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: Number(process.env.SMTP_PORT),
   secure: Number(process.env.SMTP_PORT) === 465,
-  authMethod: "LOGIN",
+  requireTLS: true,
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
+  },
+  tls: {
+    ciphers: "SSLv3",
   },
 });
 
@@ -29,9 +34,22 @@ export async function POST(request: Request) {
     const body = await request.json();
     const parsed = schema.parse(body);
 
+    const settings = await client.fetch<{ contactFormEmail?: string } | null>(
+      contactFormEmailQuery,
+    );
+    const toEmail = settings?.contactFormEmail?.trim();
+
+    if (!toEmail) {
+      console.error("Contact form error: missing contactFormEmail in settings");
+      return NextResponse.json(
+        { error: "Kunne ikke sende skjema. Prøv igjen senere." },
+        { status: 500 },
+      );
+    }
+
     const info = await transporter.sendMail({
       from: `"Reika Kontaktskjema" <${process.env.SMTP_FROM_EMAIL}>`,
-      to: process.env.SMTP_TO_EMAIL,
+      to: toEmail,
       replyTo: parsed.email,
       subject: `Ny kontaktforespørsel fra ${parsed.firstName} ${parsed.lastName}`,
       html: `
@@ -56,7 +74,7 @@ export async function POST(request: Request) {
       );
     }
 
-    console.error("Contact form error:", error);
+    console.error("Contact form error:", error instanceof Error ? error.message : error);
     return NextResponse.json(
       { error: "Kunne ikke sende skjema. Prøv igjen senere." },
       { status: 500 },

@@ -322,6 +322,7 @@ export interface SettingsDocument extends SeoFields {
   siteDescription?: string;
   tagline?: string;
   subtagline?: string;
+  contactFormEmail?: string;
   navigation?: NavigationPage[];
   footer?: {
     contactText?: string;
